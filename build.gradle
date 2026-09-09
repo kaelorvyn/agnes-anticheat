@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.agnes'
+version = '1.0.0'
+
+repositories {
+    maven { url = 'https://maven.aliyun.com/repository/central' }
+    maven { url = 'https://repo.papermc.io/repository/maven-public/' }
+    maven { url = 'https://repo.codemc.org/repository/maven-public/' }
+}
+
+def packetEventsJar = System.getenv('PACKETEVENTS_JAR')
+    ?: 'D:/MC/server/[25568]lifesteal生存/plugins/packetevents-spigot-2.13.0.jar'
+
+dependencies {
+    compileOnly 'io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT'
+    compileOnly 'net.milkbowl.vault:VaultAPI:1.7'
+    compileOnly 'com.google.code.gson:gson:2.13.2'
+    compileOnly files(packetEventsJar)
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 21
+    options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnitPlatform()
+}

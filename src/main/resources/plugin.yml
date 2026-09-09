@@ -1,0 +1,18 @@
+name: AgnesAntiCheat
+version: 1.0.0
+main: com.agnes.anticheat.AgnesAntiCheatPlugin
+api-version: '1.21'
+softdepend: [Vault, packetevents]
+
+commands:
+  ac:
+    description: Agnes 反作弊管理指令。
+    usage: /ac <reload|status|scanitems|removeillegal|warn|trust>
+
+permissions:
+  agnesanticheat.alerts:
+    description: 接收反作弊管理员告警。
+    default: op
+  agnesanticheat.admin:
+    description: 允许使用 AgnesAntiCheat 管理指令。
+    default: op

@@ -1,0 +1,45 @@
+api:
+  base-url: "https://api.agnes-ai.cn"
+  model: "agnes-2.5-flash"
+  api-key: ""
+  max-tokens: 1200
+  timeout-seconds: 60
+  circuit-break-minutes: 5
+
+analysis:
+  interval-seconds: 60
+  min-confidence: 0.85
+  required-consecutive: 2
+  cooldown-seconds: 120
+
+calculation:
+  damage-tolerance: 0.15
+  speed-tolerance: 0.25
+  enable-melee: true
+  enable-ranged: true
+  enable-incoming-damage: true
+  enable-movement-speed: true
+
+item-audit:
+  enabled: true
+  interval-seconds: 120
+  max-chunks-per-tick: 64
+  scan-player-inventories: true
+  scan-loaded-containers: true
+
+packet:
+  enabled: true
+
+interaction:
+  log-commands: true
+  log-chat-content: false
+
+actions:
+  warn-player: true
+  alert-admins: true
+  kick: false
+  ban: false
+
+trusted-admins: []
+trust:
+  allow-in-game-command: false
